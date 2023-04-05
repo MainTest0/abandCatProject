@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-String username = (String) session.getAttribute("id");
-if (username == null) {
-	response.sendRedirect("/login.jsp");
-}
-%>
 <link rel="stylesheet" href="/css/header.css">
 <link rel="stylesheet" href="/css/footer.css">
 <link rel="stylesheet" href="/css/nav.css">
@@ -33,15 +27,11 @@ h1 {
 <div id=postion>
 	<jsp:include page="/commonjsp/nav.jsp" />
 	<div class="myInfoUpdatePage">
-		<h1>신고 등록하기</h1>
-		<form action="/CatServlet?action=insert" method="post">
-			이름 : <input type="text" name="name" id="name" required="required"><br>
-			성별 : <input type="text" name="gender" id="gender"><br>
-			나이 : <input type="text" name="age" id="age"><br> 좋아하는 것
-			: <input type="text" name="favorite" id="favorite"><br>
-			싫어하는 것 : <input type="text" name="hate" id="hate"><br> <input
-				type="submit" value="등록하기">
-		</form>
+		<h1>내 정보 수정 페이지</h1>
+		<ul>
+			<li><a href="/user/updateUser.jsp"><p>회원정보 수정</p></a></li>
+			<li><a href="/user/deleteUser.jsp"><p>회원 탈퇴</p></a></li>
+		</ul>
 	</div>
 </div>
 <jsp:include page="/commonjsp/footer.jsp" />

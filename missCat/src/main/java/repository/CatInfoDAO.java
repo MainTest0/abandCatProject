@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import catDTO.CatInfoDTO;
 import utils.DBHelper;
 
-public class CatInfoDAO implements IMisscatRepo{
+public class CatInfoDAO implements IMisscatRepo {
 
 	private DBHelper dbHelper;
 	private Connection conn;
-	
+
 	public CatInfoDAO() {
 		dbHelper = new DBHelper();
 		conn = dbHelper.getConnection();
 	}
-	
+
 	@Override
 	public ArrayList<CatInfoDTO> select() {
-		
+
 		ArrayList<CatInfoDTO> list = new ArrayList<>();
 
 		String strQuery = " SELECT * FROM cat ";
@@ -56,8 +56,7 @@ public class CatInfoDAO implements IMisscatRepo{
 	@Override
 	public int insert(String name, String gender, String age, String favorite, String hate) {
 		int resultCount = 0;
-		String queryStr = " INSERT INTO cat(name, gender, age, favorite, hate) "
-				+ " VALUES (?, ?, ?, ?, ?) ";
+		String queryStr = " INSERT INTO cat(name, gender, age, favorite, hate) " + " VALUES (?, ?, ?, ?, ?) ";
 		PreparedStatement pStmt = null;
 		try {
 			pStmt = conn.prepareStatement(queryStr);
@@ -82,13 +81,8 @@ public class CatInfoDAO implements IMisscatRepo{
 	@Override
 	public int update(String correctionName, String name, String gender, String age, String favorite, String hate) {
 		int resultRowCount = 0;
-		String queryStr = " UPDATE cat "
-				+ " SET name = ?, "
-				+ " gender = ?, "
-				+ " age = ?, "
-				+ " favorite = ?, "
-				+ " hate = ? "
-				+ " WHERE name = ? ";
+		String queryStr = " UPDATE cat " + " SET name = ?, " + " gender = ?, " + " age = ?, " + " favorite = ?, "
+				+ " hate = ? " + " WHERE name = ? ";
 		PreparedStatement pStmt = null;
 		try {
 			pStmt = conn.prepareStatement(queryStr);
@@ -113,9 +107,9 @@ public class CatInfoDAO implements IMisscatRepo{
 
 	@Override
 	public int delete(String name) {
-		int resultRowCount = 0; 
+		int resultRowCount = 0;
 		String queryStr = " DELETE FROM cat WHERE name = ? ";
-		PreparedStatement pStmt = null; 
+		PreparedStatement pStmt = null;
 		try {
 			pStmt = conn.prepareStatement(queryStr);
 			pStmt.setString(1, name);
@@ -129,10 +123,8 @@ public class CatInfoDAO implements IMisscatRepo{
 				e.printStackTrace();
 			}
 		}
-		
+
 		return resultRowCount;
 	}
-	
-	
 
 }

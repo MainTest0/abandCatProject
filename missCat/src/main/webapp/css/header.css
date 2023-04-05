@@ -27,28 +27,5 @@ header{
 	width:800px;
 }
 
-li{
-	border-radius: 20px;
-	background-color: #9BA5C4;
-	margin: 20px;
-	width: 180px;
-}
-li:hover{
-	text-decoration: underline;
-}
-li p{
-	text-align: center;
-	padding:30px;
-	color: black;
-}
-a{
-	color: black;	
-}
-#body_section {
-	display: flex;
-}
 
-#body_div {
-	display: flex;
-}
 
